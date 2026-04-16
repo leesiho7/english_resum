@@ -3,307 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 Developer Portfolio - SIHO LEE</title>
-    <meta name="description" content="Full-stack Developer specializing in Web3. Fluent in Chinese, bridging the KR-CN IT ecosystem.">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
+    <title>Resume - SIHO LEE (Web3 Developer & Global PM)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf9;
+            padding: 2rem 0;
+            min-height: 100vh;
         }
-        
-        .nav-link:hover {
-            color: #2563eb;
+
+        /* Max-width 800px constraint for mobile & desktop readability */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
         }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .resume-layout {
+            display: flex;
+            flex-direction: column; /* Stacked layout for better 800px fit */
         }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
+
+        /* Top Header Area */
+        .header {
+            background-color: #2a2d35;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid #d4a574;
+        }
+
+        .name {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #d4a574;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .section-header {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #2a2d35;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-header::after {
+            content: "";
+            height: 2px;
+            background: #d4a574;
+            flex-grow: 1;
+        }
+
+        /* Info Grid (Contact & Skills) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            background: #f8f8f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .contact-item i {
+            color: #d4a574;
+            width: 16px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: white;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+            color: #374151;
+        }
+
+        /* Timeline Items */
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid #f3f4f6;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: #d4a574;
+            border-radius: 50%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .job-period {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .job-company {
+            color: #d4a574;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-description {
+            color: #4b5563;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievements {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+
+        .achievement-item {
+            font-size: 0.875rem;
+            color: #374151;
+            margin-bottom: 0.25rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .achievement-item::before {
+            content: "→";
+            color: #d4a574;
+        }
+
+        /* Projects */
+        .project-card {
+            background-color: #fcfcfb;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #f1f1ef;
+            margin-bottom: 1rem;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #111827;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-tech {
+            font-size: 0.7rem;
+            color: #d4a574;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Languages */
+        .lang-flex {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .lang-item {
+            font-size: 0.875rem;
+        }
+
+        .lang-name { font-weight: 700; color: #1f2937; }
+        .lang-level { color: #6b7280; margin-left: 0.25rem; }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .container { box-shadow: none; max-width: 100%; }
         }
     </style>
 </head>
-<body class="bg-white text-gray-900">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="text-xl font-bold text-gray-900 tracking-tight">
-                    SIHO.web3
-                </div>
-                <div class="hidden md:flex space-x-8 font-medium text-gray-600">
-                    <a href="#home" class="nav-link transition-colors">Home</a>
-                    <a href="#about" class="nav-link transition-colors">About</a>
-                    <a href="#projects" class="nav-link transition-colors">Projects</a>
-                </div>
-                <div class="flex items-center gap-4">
-     <a href="https://zhongwen-three.vercel.app/" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
-        <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
-        中文简历
-    </a>
-    
-    <a href="https://english-resum.vercel.app/" target="_blank" class="hidden sm:inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
-        <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
-        Resume PDF
-    </a>
-</div>
-            </div>
-        </div>
-    </nav>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">SIHO LEE</h1>
+            <p class="title">Strategic Web3 Developer & Global PM Builder</p>
+        </header>
 
-  <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            
-            <div class="space-y-6">
-                <div class="inline-flex items-center px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
-                    Global PM Builder & Web3 Developer
+        <div class="main-content">
+            <!-- Top Info Summary -->
+            <div class="info-grid">
+                <div>
+                    <h3 class="section-header">Contact</h3>
+                    <div class="contact-item">
+                        <span>📧 ehfrldi@naver.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞 +82 10-2259-9262</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍 Mokpo, South Korea</span>
+                    </div>
                 </div>
-               <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-[1.2] md:leading-[1.3] tracking-tight mb-6">
-    Connecting Global Business with<br />
-    <span class="text-blue-600 relative inline-block py-1">
-        Web3 Technology
-        <span class="absolute bottom-[-2px] left-0 w-full h-3 bg-blue-200/40 rounded-full -z-10"></span>
-    </span> 
-</h1>
-                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
-                    A <b>Strategic Developer</b> bridging manufacturing process management in multinational environments with Java Spring Boot backend expertise.<br>
-                    Goal: Implementing seamless business logic on-chain with high integrity.
+                <div>
+                    <h3 class="section-header">Core Tech</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">Web3 Integration</span>
+                        <span class="skill-tag">Solidity</span>
+                        <span class="skill-tag">Java Spring Boot</span>
+                        <span class="skill-tag">On-chain Analysis</span>
+                        <span class="skill-tag">OPA(Security)</span>
+                        <span class="skill-tag">AWS KMS(HSM)</span>
+                        <span class="skill-tag">Technical Bridge</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section>
+                <h2 class="section-header">Professional Summary</h2>
+                <p style="font-size: 0.95rem; color: #374151; line-height: 1.7;">
+                    A strategic developer specializing in bridging global business requirements with technical Web3 implementation. 
+                    With a strong foundation in <strong>multinational process management</strong> and <strong>technical interpretation</strong>, 
+                    I focus on building secure, transparent on-chain solutions using Java Spring Boot and Solidity. 
+                    Fluent in <strong>Business Chinese</strong> with extensive experience in KR-CN cross-border collaboration.
                 </p>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#projects" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 group">
-                        View Projects
-                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="mailto:ehfrldi@naver.com?subject=Inquiry for SIHO LEE (Web3 Developer)" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-bold hover:border-blue-600 hover:text-blue-600 transition-colors">
-                        Full Resume (PDF)
-                    </a>
-                </div>
-            </div>
+            </section>
 
-            <div class="hidden md:block relative group">
-                <div class="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
+            <!-- Experience Section -->
+            <section>
+                <h2 class="section-header">Work Experience</h2>
                 
-                <img src="https://images.unsplash.com/photo-1622790698141-94e30457ef12?q=80&w=800&auto=format&fit=crop" 
-                     alt="Futuristic Ethereum 3D Crystal" 
-                     class="relative w-full max-w-md mx-auto transform group-hover:scale-105 group-hover:-rotate-2 transition-transform duration-500 drop-shadow-2xl">
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-   <section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="md:col-span-2">
-                <h2 class="text-3xl font-bold mb-6">About Me</h2>
-                <div class="space-y-4 text-gray-600 leading-relaxed">
-                    <p>I am <b>SIHO LEE</b>, a strategic developer who creates value at the intersection of global business and technology.</p>
-                    <p>
-                        With experience studying at <b>Beijing Union University</b> and fluent business Chinese communication skills, I have specialized in bridging cross-border collaboration. At <b>Gwangyang Aluminum</b>, I managed overall manufacturing processes and provided technical interpretation for multinational teams, learning that <b>"accurate data delivery is the core of trust."</b>
-                    </p>
-                    <p>
-                        Recently, through the <b>ESTsoft Bootcamp</b>, I internalized backend technologies based on Java Spring Boot and core blockchain technologies such as Solidity. I developed a "KR-CN IT Technical Document Translation ERC20 Reward Platform," verifying my Web3 capabilities through on-chain data tracking and wallet integration.
-                    </p>
-                    <p>
-                        Based on my ability to translate field requirements into technical logic, I will be a "Technical Bridge" contributing to your company's global expansion and service stability.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                <h3 class="text-xl font-bold mb-6">Contact Info</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center text-gray-600">
-                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-blue-600"></i>
-                        ehfrldi@naver.com
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <h3 class="job-title">Global Process Manager & Interpreter</h3>
+                        <span class="job-period">Previous Exp.</span>
                     </div>
-                    <div class="flex items-center text-gray-600">
-                        <i data-lucide="phone" class="w-5 h-5 mr-3 text-blue-600"></i>
-                        +82 10-2259-9262
-                    </div>
-                    <div class="flex items-center text-gray-600">
-                        <i data-lucide="github" class="w-5 h-5 mr-3 text-blue-600"></i>
-                        <a href="https://github.com/leesiho7/C-CHAIN-WEB3.git" class="hover:text-blue-600 transition-colors">GitHub Repository</a>
-                    </div>
-                    <div class="flex items-center text-gray-600">
-                        <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-blue-600"></i>
-                        Mokpo, Korea
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Core Competencies</h2>
-                <p class="text-gray-600">Key strengths proven through real-world data and project experience.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Blockchain Engineering -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center mb-6">
-                        <div class="p-3 bg-blue-100 rounded-lg text-blue-600 mr-4">
-                            <i data-lucide="layers" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Blockchain Development</h3>
-                    </div>
-                    <ul class="space-y-4 text-gray-600">
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-2">✔</span>
-                            <span><strong>Web3 Integration:</strong> Implemented MetaMask wallet connection and ERC20-based real-time reward transaction logic.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-2">✔</span>
-                            <span><strong>On-chain Analysis:</strong> Verified data integrity through Tx Hash tracking and integrated with relational databases.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-2">✔</span>
-                            <span><strong>Backend Design:</strong> Built blockchain node connections and APIs using Web3j within a Java Spring Boot environment.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-600 mr-2">✔</span>
-                            <span><strong>Market Data Sync:</strong> Implemented real-time crypto price monitoring using public and exchange APIs.</span>
-                        </li>
+                    <p class="job-company">Gwangyang Aluminum / Headquartered in Shanghai</p>
+                    <p class="job-description">Managed end-to-end manufacturing processes for a large-scale multinational production facility.</p>
+                    <ul class="achievements">
+                        <li class="achievement-item">Coordinated technical workflows between Korean and Chinese engineering teams.</li>
+                        <li class="achievement-item">Facilitated technical interpretation for complex industrial equipment integration.</li>
                     </ul>
                 </div>
-
-              <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-    <div class="flex items-center mb-6">
-        <div class="p-3 bg-purple-100 rounded-lg text-purple-600 mr-4">
-            <i data-lucide="globe" class="w-6 h-6"></i>
-        </div>
-        <h3 class="text-xl font-bold">Global Communication</h3>
+               
+    <div class="timeline-item">
+    <div class="job-header">
+        <h3 class="job-title">Administrative Operations & Data Management Specialist</h3>
+        <span class="job-period">Previous Exp.</span>
     </div>
-    <ul class="space-y-4 text-gray-600">
-        <li class="flex items-start">
-            <span class="text-purple-600 mr-2">✔</span>
-            <span><strong>Business Chinese:</strong> Fluent technical collaboration between KR-CN based on immersion in Beijing.</span>
+    <p class="job-company">Mokpo Police Station / Jeonnam Provincial Police</p>
+    <p class="job-description">Managed public administrative services and traffic violation data distribution.</p>
+    <ul class="achievements">
+        <li class="achievement-item"><strong>Mokpo Police Station:</strong> Facilitated public service by processing and providing official administrative documents to citizens at the Integrated Civil Service Center.</li>
+        <li class="achievement-item"><strong>Jeonnam Provincial Police:</strong> Managed automated traffic enforcement data and coordinated the distribution of violation records to respective local stations.</li>
+        <li class="achievement-item">Maintained high accuracy in data handling and strictly followed governmental data privacy protocols.</li>
+    </ul>
+</div>
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <h3 class="job-title">International Student Affairs Manager</h3>
+                        <span class="job-period">Previous Exp.</span>
+                    </div>
+                    <p class="job-company">Sehan University</p>
+                    <p class="job-description">Led recruitment and administrative management for international graduate students.</p>
+                    <ul class="achievements">
+                        <li class="achievement-item">Managed visa administration and compliance for Greater China region students.</li>
+                        <li class="achievement-item">Streamlined communication channels for academic and residential administration.</li>
+                    </ul>
+                </div>
+      <div class="timeline-item" style="margin-bottom: 1.5rem;">
+    <div class="job-header" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+        <h3 class="job-title" style="font-size: 1.1rem; color: #111827; margin: 0;">Career Development & Industry Liaison Manager</h3>
+        <span class="job-period" style="font-size: 0.85rem; color: #6b7280; white-space: nowrap; margin-left: 10px;">Previous Exp.</span>
+    </div>
+    <p class="job-company" style="color: #d4a978; font-weight: 500; margin-bottom: 6px;">Haenam Technical High School (Meister Course)</p>
+    <p class="job-description" style="font-size: 0.95rem; color: #4b5563; margin-bottom: 8px; line-height: 1.5;">Managed industry-academic partnerships and student career placement services.</p>
+    
+    <ul class="achievements" style="list-style: none; padding-left: 0; margin: 0;">
+        <li class="achievement-item" style="display: flex; align-items: flex-start; margin-bottom: 6px; text-align: left; line-height: 1.5; font-size: 0.9rem; color: #4b5563;">
+            <span style="margin-right: 8px; color: #d97706;">•</span>
+            <span>Established <strong>strategic MOUs with various corporations</strong> to expand employment opportunities for students.</span>
         </li>
-        <li class="flex items-start">
-            <span class="text-purple-600 mr-2">✔</span>
-            <span><strong>Multinational Management:</strong> Managed processes and provided technical interpretation for international personnel at <b>Gwangyang Aluminum</b>.</span>
+        <li class="achievement-item" style="display: flex; align-items: flex-start; margin-bottom: 6px; text-align: left; line-height: 1.5; font-size: 0.9rem; color: #4b5563;">
+            <span style="margin-right: 8px; color: #d97706;">•</span>
+            <span>Coordinated student-to-company matching and provided <strong>post-employment management</strong> to ensure career stability.</span>
         </li>
-        <li class="flex items-start">
-            <span class="text-purple-600 mr-2">✔</span>
-            <span><strong>Technical Bridge:</strong> Managed graduate students and recruitment/visa processes for Chinese-speaking students at <b>Sehan University</b>.</span>
+        <li class="achievement-item" style="display: flex; align-items: flex-start; margin-bottom: 6px; text-align: left; line-height: 1.5; font-size: 0.9rem; color: #4b5563;">
+            <span style="margin-right: 8px; color: #d97706;">•</span>
+            <span>Developed and maintained a robust network with industry partners to streamline recruitment processes.</span>
         </li>
     </ul>
 </div>
-    </section>
+            </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-            
-            <div class="max-w-6xl mx-auto">
-                <!-- Project 1 -->
-                <div class="group grid lg:grid-cols-2 gap-12 items-center bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <div class="aspect-video overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop" alt="Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-10">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-4 inline-block">Main Project</span>
-                        <h3 class="text-2xl font-bold mb-4">KR-CN IT Tech Doc Translation Platform</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            A blockchain-based platform for technical document translation. It rewards contributors with ERC-20 tokens and ensures transparency through real-time on-chain indexing.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 text-xs font-medium text-gray-500">
-                            <span class="px-3 py-1 bg-white border rounded-full">Java</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Spring Boot</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Solidity</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Web3.j</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Hardhat</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Metamask SDK</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">MySQL</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-8">
-                            <a href="https://github.com/leesiho7/C-CHAIN-WEB3.git" target="_blank" 
-                               class="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-700 transition-all shadow-lg group min-w-[200px]">
-                                <i data-lucide="github" class="w-6 h-6 mr-3 text-white group-hover:scale-110 transition-transform"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://c-chain-web3-production.up.railway.app/" target="_blank" 
-                               class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg group min-w-[200px]">
-                                <span class="text-2xl mr-3 group-hover:scale-110 transition-transform">🚀</span>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
+            <!-- Projects Section -->
+            <section>
+                <h2 class="section-header">Web3 Projects</h2>
+                
+                <div class="project-card">
+                    <span class="project-tech">Java, Spring Boot, Solidity, Web3j, ERC-20, MySQL, AWS(KMS), REDIS </span>
+                    <h3 class="project-name">KR-CN IT Technical Translation Reward Platform</h3>
+                    <p class="job-description">A decentralized platform rewarding technical translation contributions with ERC-20 tokens.</p>
+                    <ul class="achievements">
+                        <li class="achievement-item">Implemented real-time on-chain indexing for transparent contribution tracking.</li>
+                        <li class="achievement-item">Engineered a secure transaction system using AWS KMS (HSM) for robust private key management.</li>
+                        <li class="achievement-item">Implemented a gasless transaction architecture to enhance user experience by delegating gas fees.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="group grid lg:grid-cols-2 gap-12 items-center bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 mt-12">
-                    <div class="aspect-video overflow-hidden lg:order-2">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Security Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-10 lg:order-1">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold mb-4 inline-block">Security Project</span>
-                        <h3 class="text-2xl font-bold mb-4">Risk & Security Operation Platform</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            An integrated security operation platform for real-time monitoring and response to smart contract vulnerabilities and network security risks in Web3 environments.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8 text-xs font-medium text-gray-500">
-                            <span class="px-3 py-1 bg-white border rounded-full">Java</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Spring Boot</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Solidity</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Python</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">FastAPI</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Ethers.js</span>
-                            <span class="px-3 py-1 bg-white border rounded-full">Security Audit</span>
-                        </div>
-                        <div class="flex flex-wrap gap-4 mt-8">
-                            <a href="https://github.com/leesiho7/2026-HONGKONG-WEB3-Transfer-Investigate-Risk-Operations-center" target="_blank" 
-                               class="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-700 transition-all shadow-lg group min-w-[200px]">
-                                <i data-lucide="github" class="w-6 h-6 mr-3 text-white group-hover:scale-110 transition-transform"></i>
-                                <span>GitHub</span>
-                                 <a href="https://calm-elegance-production.up.railway.app/" target="_blank" 
-                               class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg group min-w-[200px]">
-                                <span class="text-2xl mr-3 group-hover:scale-110 transition-transform">🚀</span>
-                                <span>Live Demo</span>
-                            
-                            </a>
-                        </div>
-                    </div>
+                <div class="project-card">
+                    <span class="project-tech">Java, Quick Node, Websocket, Mysql, REDIS </span>
+                    <h3 class="project-name">Risk & Security Operation Platform</h3>
+                    <p class="job-description">Comprehensive FDS (Fraud Detection System): Developed an integrated monitoring system to detect and manage on-chain risks based on real-time transaction analysis.</p>
+                    <ul class="achievement-item" style="font-size: 0.875rem; color: #374151;">
+                       Advanced Investigation Module: Built an 'Investigate' feature to track suspicious wallet activities and categorize risk levels for proactive threat management.
+                    </ul>
+                     <ul class="achievement-item" style="font-size: 0.875rem; color: #374151;">
+                       Enhanced AML (Anti-Money Laundering) monitoring by implementing logic to detect suspicious address patterns and potential mixing activities.
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-gray-100 text-center">
-        <div class="container mx-auto px-4">
-            <h3 class="text-xl font-bold mb-4 text-gray-900">SIHO.web3</h3>
-            <p class="text-gray-500 text-sm mb-6">Web3 Developer with global business experience.</p>
-            <div class="flex justify-center space-x-6 mb-8 text-gray-400">
-                <a href="#" class="hover:text-gray-900 transition-colors"><i data-lucide="github" class="w-6 h-6"></i></a>
-                <a href="#" class="hover:text-gray-900 transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
-                <a href="#" class="hover:text-gray-900 transition-colors"><i data-lucide="mail" class="w-6 h-6"></i></a>
-            </div>
-            <p class="text-gray-400 text-xs">&copy; 2026 SIHO LEE. All rights reserved.</p>
+            <!-- Language & Education Summary -->
+            <section>
+                <h2 class="section-header">Languages & Education</h2>
+                <div class="lang-flex" style="margin-bottom: 1.5rem;">
+                    <div class="lang-item"><span class="lang-name">Korean</span><span class="lang-level">Native</span></div>
+                    <div class="lang-item"><span class="lang-name">Chinese</span><span class="lang-level">Fluent (HSK 5 Level)</span></div>
+                    <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Intermidiate Low</span></div>
+                </div>
+                
+               <div style="background: #ffffff; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e7eb; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <h3 style="font-size: 1.1rem; color: #111827; margin-bottom: 1rem; border-bottom: 2px solid #3b82f6; display: inline-block; padding-bottom: 2px;">Education</h3>
+    
+    <div style="margin-bottom: 1.2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong style="font-size: 1rem; color: #1f2937;">Mokpo National University</strong>
+            <span style="font-size: 0.875rem; color: #6b7280;">2014.03 – 2016.02</span>
         </div>
-    </footer>
+        <p style="margin: 0.25rem 0 0 0; color: #4b5563; font-size: 0.95rem;">Bachelor of Economics (Graduated)</p>
+    </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
+    <div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong style="font-size: 1rem; color: #1f2937;">Beijing Union University, China</strong>
+            <span style="font-size: 0.875rem; color: #6b7280;">2012.03 – 2014.01</span>
+        </div>
+        <p style="margin: 0.25rem 0 0 0; color: #4b5563; font-size: 0.95rem;">International Trade (Transfer)</p>
+    </div>
+</div>
+            </section>
+        </div>
+
+        <footer style="background: #2a2d35; color: #9ca3af; padding: 1.5rem; text-align: center; font-size: 0.75rem;">
+            &copy; 2026 SIHO LEE. Optimized for Web3 Global Opportunities.
+        </footer>
+    </div>
 </body>
 </html>
